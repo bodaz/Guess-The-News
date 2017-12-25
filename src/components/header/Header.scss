@@ -1,0 +1,14 @@
+.header {
+  width: 100%;
+  min-height: 42px;
+  background-color: black;
+  color: white;
+  margin-bottom: 10px;
+}
+
+.header-container {
+  margin: 0 auto;
+  padding: 0 5px;
+  max-width: 1200px;
+  display: flex;
+}

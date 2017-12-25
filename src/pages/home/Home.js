@@ -1,33 +1,51 @@
-import React from "react";
-import { connect } from "react-redux";
+import React, { Component } from "react";
 
-import { Button } from "../../components";
+import "./Home.css";
+import { Card, Header } from "../../components";
 
-let Home = ({ status, counter, onIncrement }) => (
-  <div className="home">
-    <h1>{status}</h1>
-    <h2>{counter}</h2>
-    <Button onClick={onIncrement}>+</Button>
-  </div>
-);
-
-const mapStateToProps = ({ counter, status }) => {
-  return {
-    counter,
-    status
+class Home extends Component {
+  state = {
+    articles: []
   };
-};
 
-const mapDispatchToProps = dispatch => {
-  return {
-    onIncrement: () => {
-      dispatch({
-        type: "INCREMENT"
+  componentDidMount() {
+    fetch(
+      `https://newsapi.org/v2/top-headlines?sources=bbc-news&apiKey=${
+        process.env.REACT_APP_NEWS_API_KEY
+      }`
+    )
+      .then(response => {
+        if (response.status !== 200) {
+          console.log("Error! Status code: " + response.status);
+          return;
+        }
+
+        response.json().then(data => {
+          this.setState({
+            articles: data.articles
+          });
+        });
+      })
+      .catch(error => {
+        console.log("Request failed", error);
       });
-    }
-  };
-};
+  }
 
-Home = connect(mapStateToProps, mapDispatchToProps)(Home);
+  render() {
+    const { articles } = this.state;
+
+    return (
+      <div className="home" id="home">
+        <Header />
+        <div className="grid-container">
+          {articles.length > 0 &&
+            articles.map((article, index) => (
+              <Card key={index} article={article} />
+            ))}
+        </div>
+      </div>
+    );
+  }
+}
 
 export default Home;
