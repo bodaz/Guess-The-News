@@ -1,5 +1,7 @@
 import React, { Component } from "react";
-import { Input, Button } from "antd";
+import Input from "antd/lib/input";
+import Button from "antd/lib/button";
+// import { Input, Button } from "antd";
 
 import "./Card.css";
 
@@ -8,8 +10,7 @@ class Card extends Component {
     input: "",
     tries: 3,
     showLink: false,
-    showError: false,
-    titleArray: []
+    showError: false
   };
 
   onInputChange = e => {
@@ -45,36 +46,22 @@ class Card extends Component {
   };
 
   onEnterKeyPressed = e => {
-    const { titleArray, input } = this.state;
+    const { input } = this.state;
 
     if (e.key === "Enter") {
-      this.checkInputInArray(input, titleArray);
+      this.checkInputInArray(input, this.props.titleAsArray);
     }
   };
 
   onSubmit = e => {
-    const { titleArray, input, showLink } = this.state;
+    const { input, showLink } = this.state;
 
     if (input === "" || showLink) {
       return;
     }
 
-    this.checkInputInArray(input, titleArray);
+    this.checkInputInArray(input, this.props.titleAsArray);
   };
-
-  updateTitleArray = () => {
-    this.setState({
-      titleArray: this.props.article.title
-        .toUpperCase()
-        .replace(/[\W_]+/g, " ")
-        .trim()
-        .split(" ")
-    });
-  };
-
-  componentDidMount() {
-    this.updateTitleArray();
-  }
 
   componentDidUpdate() {
     const { tries, showLink, showError } = this.state;
