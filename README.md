@@ -1,6 +1,6 @@
 ## Guess The News
 
-## Rules
+## Current rules
 
 * no space allowed
 * `apple's` will be split into `apple` and `s`
@@ -14,6 +14,7 @@
 ## To Add Features: Persist
 
 * Remember which article has been guessed (Use a uid for each article link? Also solve title reveal bug)
+* LocalStorage
 
 ## To Optimize:
 

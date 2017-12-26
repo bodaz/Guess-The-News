@@ -2,6 +2,17 @@
   min-height: 900px;
 }
 
+.home-main {
+  padding-top: 8px;
+  h2 {
+    color: black;
+  }
+}
+
+.home-messages {
+  text-align: center;
+}
+
 .grid-container {
   display: flex;
   margin: 0 auto;

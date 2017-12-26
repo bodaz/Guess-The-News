@@ -3,13 +3,25 @@ import React, { Component } from "react";
 import "./Home.css";
 import { Card, Filter } from "../../components";
 
+const LoadingMessage = () => <h2>Loading articles...</h2>;
+
+const FetchErrorMessage = () => (
+  <div>
+    <h2>Error loading articles...</h2>
+    <h2>Try again later.</h2>
+  </div>
+);
+
 class Home extends Component {
   state = {
     category: "technology",
     language: "en",
-    articles: []
+    articles: [],
+    loading: true,
+    fetchError: false
   };
 
+  // setState() with updater to refetch articles
   onFilterChange = (name, value) => {
     this.setState(
       {
@@ -45,12 +57,17 @@ class Home extends Component {
           );
 
           this.setState({
-            articles: data.articles.slice(0, 30)
+            articles: data.articles.slice(0, 30),
+            loading: false
           });
         });
       })
       .catch(error => {
         console.log("Request failed", error);
+        this.setState({
+          fetchError: true,
+          loading: false
+        });
       });
   };
 
@@ -59,7 +76,7 @@ class Home extends Component {
   }
 
   render() {
-    const { articles, category, language } = this.state;
+    const { articles, category, language, loading, fetchError } = this.state;
 
     return (
       <div className="home">
@@ -68,22 +85,30 @@ class Home extends Component {
           category={category}
           language={language}
         />
-        <div className="grid-container">
-          {articles.length > 0 &&
-            articles.map((article, index) => {
-              const titleAsArray = article.title
-                .toUpperCase()
-                .replace(/[\W_]+/g, " ")
-                .trim()
-                .split(" ");
-              return (
-                <Card
-                  key={index}
-                  article={article}
-                  titleAsArray={titleAsArray}
-                />
-              );
-            })}
+
+        <div className="home-main">
+          <div className="home-messages">
+            {loading && <LoadingMessage />}
+            {fetchError && <FetchErrorMessage />}
+          </div>
+
+          <div className="grid-container">
+            {articles.length > 0 &&
+              articles.map((article, index) => {
+                const titleAsArray = article.title
+                  .toUpperCase()
+                  .replace(/[\W_]+/g, " ")
+                  .trim()
+                  .split(" ");
+                return (
+                  <Card
+                    key={index}
+                    article={article}
+                    titleAsArray={titleAsArray}
+                  />
+                );
+              })}
+          </div>
         </div>
       </div>
     );
