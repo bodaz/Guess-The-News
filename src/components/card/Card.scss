@@ -1,7 +1,7 @@
 .card {
   width: 320px;
   background-color: white;
-  box-shadow: 0 10px 10px rgba(0, 0, 0, 0.1);
+  box-shadow: 0 10px 10px rgba(0, 0, 0, 0.2);
 }
 
 .card-image {
@@ -24,13 +24,14 @@
 }
 
 .card-title {
-  min-height: 48px;
+  // min-height: 48px;
+  // max-height: 72px;
+  height: 72px;
   padding: 0 5px;
   margin-bottom: 8px;
   a {
     font-size: 16px;
     color: #403f40;
-    font-weight: 700;
   }
 }
 .card-title-hide {

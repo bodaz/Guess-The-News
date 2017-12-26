@@ -9,7 +9,7 @@ class Card extends Component {
     tries: 3,
     showLink: false,
     showError: false,
-    titleAsArray: []
+    titleArray: []
   };
 
   onInputChange = e => {
@@ -45,31 +45,35 @@ class Card extends Component {
   };
 
   onEnterKeyPressed = e => {
-    const { titleAsArray, input } = this.state;
+    const { titleArray, input } = this.state;
 
     if (e.key === "Enter") {
-      this.checkInputInArray(input, titleAsArray);
+      this.checkInputInArray(input, titleArray);
     }
   };
 
   onSubmit = e => {
-    const { titleAsArray, input, showLink } = this.state;
+    const { titleArray, input, showLink } = this.state;
 
     if (input === "" || showLink) {
       return;
     }
 
-    this.checkInputInArray(input, titleAsArray);
+    this.checkInputInArray(input, titleArray);
   };
 
-  componentDidMount() {
+  updateTitleArray = () => {
     this.setState({
-      titleAsArray: this.props.article.title
+      titleArray: this.props.article.title
         .toUpperCase()
         .replace(/[\W_]+/g, " ")
         .trim()
         .split(" ")
     });
+  };
+
+  componentDidMount() {
+    this.updateTitleArray();
   }
 
   componentDidUpdate() {
@@ -129,7 +133,7 @@ class Card extends Component {
     };
 
     return (
-      <div className="card" id="card">
+      <div className="card">
         <div
           className="card-image"
           style={{ backgroundImage: `url(${article.urlToImage})` }}

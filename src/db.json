@@ -1,0 +1,108 @@
+{
+  "languages": [
+    {
+      "name": "Arabic",
+      "value": "ar"
+    },
+    {
+      "name": "Chinese",
+      "value": "cn"
+    },
+    {
+      "name": "Dutch",
+      "value": "nl"
+    },
+    {
+      "name": "English",
+      "value": "en"
+    },
+    {
+      "name": "French",
+      "value": "fr"
+    },
+    {
+      "name": "German",
+      "value": "de"
+    },
+    {
+      "name": "Hebrew",
+      "value": "he"
+    },
+    {
+      "name": "Italian",
+      "value": "it"
+    },
+    {
+      "name": "Norwegian",
+      "value": "no"
+    },
+    {
+      "name": "Portuguese",
+      "value": "pt"
+    },
+    {
+      "name": "Russian",
+      "value": "ru"
+    },
+    {
+      "name": "Spanish",
+      "value": "es"
+    },
+    {
+      "name": "Swedish",
+      "value": "sv"
+    },
+    {
+      "name": "Urdu",
+      "value": "ud"
+    }
+  ],
+  "countries": [
+    {
+      "name": "",
+      "value": ""
+    }
+  ],
+  "categories": [
+    {
+      "name": "Business",
+      "value": "business"
+    },
+    {
+      "name": "Entertainment",
+      "value": "entertainment"
+    },
+    {
+      "name": "Gaming",
+      "value": "gaming"
+    },
+    {
+      "name": "General",
+      "value": "general"
+    },
+    {
+      "name": "Health",
+      "value": "health-and-medical"
+    },
+    {
+      "name": "Music",
+      "value": "music"
+    },
+    {
+      "name": "Politics",
+      "value": "politics"
+    },
+    {
+      "name": "Science",
+      "value": "science-and-nature"
+    },
+    {
+      "name": "Sport",
+      "value": "sport"
+    },
+    {
+      "name": "Technology",
+      "value": "technology"
+    }
+  ]
+}
