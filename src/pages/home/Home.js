@@ -5,17 +5,20 @@ import { Card, Filter } from "../../components";
 
 class Home extends Component {
   state = {
-    shouldFetchArticles: true,
     category: "technology",
     language: "en",
     articles: []
   };
 
   onFilterChange = (name, value) => {
-    this.setState({
-      [name]: value,
-      shouldFetchArticles: true
-    });
+    this.setState(
+      {
+        [name]: value
+      },
+      () => {
+        this.fetchArticles();
+      }
+    );
   };
 
   fetchArticles = () => {
@@ -42,8 +45,7 @@ class Home extends Component {
           );
 
           this.setState({
-            articles: data.articles.slice(0, 30),
-            shouldFetchArticles: false
+            articles: data.articles.slice(0, 30)
           });
         });
       })
@@ -56,14 +58,8 @@ class Home extends Component {
     this.fetchArticles();
   }
 
-  componentDidUpdate() {
-    if (this.state.shouldFetchArticles) {
-      this.fetchArticles();
-    }
-  }
-
   render() {
-    const { articles, category, language, shouldFetchArticles } = this.state;
+    const { articles, category, language } = this.state;
 
     return (
       <div className="home">
@@ -74,13 +70,20 @@ class Home extends Component {
         />
         <div className="grid-container">
           {articles.length > 0 &&
-            articles.map((article, index) => (
-              <Card
-                key={index}
-                article={article}
-                shouldFetchArticles={shouldFetchArticles}
-              />
-            ))}
+            articles.map((article, index) => {
+              const titleAsArray = article.title
+                .toUpperCase()
+                .replace(/[\W_]+/g, " ")
+                .trim()
+                .split(" ");
+              return (
+                <Card
+                  key={index}
+                  article={article}
+                  titleAsArray={titleAsArray}
+                />
+              );
+            })}
         </div>
       </div>
     );
