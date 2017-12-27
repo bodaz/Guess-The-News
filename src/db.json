@@ -59,8 +59,92 @@
   ],
   "countries": [
     {
-      "name": "",
-      "value": ""
+      "name": "Argentina",
+      "value": "ar"
+    },
+    {
+      "name": "Australia",
+      "value": "au"
+    },
+    {
+      "name": "Brazil",
+      "value": "br"
+    },
+    {
+      "name": "Canada",
+      "value": "ca"
+    },
+    {
+      "name": "China",
+      "value": "cn"
+    },
+    {
+      "name": "France",
+      "value": "fr"
+    },
+    {
+      "name": "Germany",
+      "value": "de"
+    },
+    {
+      "name": "Hong Kong",
+      "value": "hk"
+    },
+    {
+      "name": "India",
+      "value": "in"
+    },
+    {
+      "name": "Ireland",
+      "value": "ie"
+    },
+    {
+      "name": "Israel",
+      "value": "is"
+    },
+    {
+      "name": "Italy",
+      "value": "it"
+    },
+    {
+      "name": "Netherlands",
+      "value": "nl"
+    },
+    {
+      "name": "Norway",
+      "value": "no"
+    },
+    {
+      "name": "Pakistan",
+      "value": "pk"
+    },
+    {
+      "name": "Russia",
+      "value": "ru"
+    },
+    {
+      "name": "Saudi Arabia",
+      "value": "sa"
+    },
+    {
+      "name": "South Africa",
+      "value": "za"
+    },
+    {
+      "name": "Spain",
+      "value": "es"
+    },
+    {
+      "name": "Sweden",
+      "value": "sv"
+    },
+    {
+      "name": "United Kingdom",
+      "value": "gb"
+    },
+    {
+      "name": "United States",
+      "value": "us"
     }
   ],
   "categories": [

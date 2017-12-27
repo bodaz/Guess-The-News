@@ -13,7 +13,8 @@
 
 ## To Add Features: Persist
 
-* Remember which article has been guessed (Use a uid for each article link? Also solve title reveal bug)
+* Redux for state management?
+* Remember which article has been guessed (Use a uid for each article link? will solve title reveal bug)
 * LocalStorage
 
 ## To Optimize:
