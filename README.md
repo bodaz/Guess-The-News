@@ -1,6 +1,6 @@
 ## Guess The News
 
-## Current rules
+## Instructions
 
 * no space allowed
 * `apple's` will be split into `apple` and `s`

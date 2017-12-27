@@ -3,6 +3,14 @@ import React, { Component } from "react";
 import "./Home.css";
 import { Card, Filter } from "../../components";
 
+function titleStringToArray(title) {
+  return title
+    .toUpperCase()
+    .replace(/[\W_]+/g, " ")
+    .trim()
+    .split(" ");
+}
+
 const LoadingMessage = () => <h2>Loading articles...</h2>;
 
 const FetchErrorMessage = () => (
@@ -88,23 +96,18 @@ class Home extends Component {
 
         <div className="home-main">
           <div className="home-messages">
-            {loading && <LoadingMessage />}
             {fetchError && <FetchErrorMessage />}
+            {loading && <LoadingMessage />}
           </div>
 
           <div className="grid-container">
             {articles.length > 0 &&
               articles.map((article, index) => {
-                const titleAsArray = article.title
-                  .toUpperCase()
-                  .replace(/[\W_]+/g, " ")
-                  .trim()
-                  .split(" ");
                 return (
                   <Card
                     key={index}
                     article={article}
-                    titleAsArray={titleAsArray}
+                    titleAsArray={titleStringToArray(article.title)}
                   />
                 );
               })}

@@ -10,10 +10,11 @@
   margin: 0 auto;
   max-width: 1200px;
   height: 100%;
+  padding: 0 10px;
   display: flex;
   flex-direction: row;
   align-items: center;
-  span {
+  .logo {
     font-size: 23px;
     font-weight: 300;
     letter-spacing: 3px;

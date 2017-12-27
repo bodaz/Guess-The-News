@@ -1,6 +1,5 @@
 import React, { Component } from "react";
 import Select from "antd/lib/select";
-// import { Select } from "antd";
 
 import "./Filter.css";
 import db from "../../db.json";
@@ -12,12 +11,8 @@ class Filter extends Component {
     this.props.onFilterChange("category", value);
   };
 
-  onLanguageChange = value => {
-    this.props.onFilterChange("language", value);
-  };
-
   render() {
-    const { category, language } = this.props;
+    const { category } = this.props;
     return (
       <div className="filter">
         <Select
@@ -29,19 +24,6 @@ class Filter extends Component {
             return (
               <Option value={category.value} key={index}>
                 {category.name}
-              </Option>
-            );
-          })}
-        </Select>
-        <Select
-          onChange={this.onLanguageChange}
-          value={language}
-          style={{ width: "150px" }}
-        >
-          {db.languages.map((language, index) => {
-            return (
-              <Option value={language.value} key={index}>
-                {language.name}
               </Option>
             );
           })}

@@ -5,7 +5,7 @@ import "./Header.css";
 const Header = () => (
   <div className="header">
     <div className="header-container">
-      <span>GUESS THE NEWS</span>
+      <span className="logo">GUESS THE NEWS</span>
     </div>
   </div>
 );
